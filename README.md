@@ -162,7 +162,7 @@ python validation/validation_with_simulator_100k.py
 
 ## 📧 Contact
 
-- **Yoonpyo Lee:** Hanyang University (iyounpyo@hanyang.ac.kr)
+- **Yoonpyo Lee:** Hanyang University lukeyounpyo@hanyang.ac.kr)
 - **Syed Bahauddin Alam:** UIUC (alams@illinois.edu)
 
 ## 📝 License

@@ -152,9 +152,6 @@ python validation/validation_with_simulator_100k.py
   year={2025}
 }
 ```
-## Contributors
-- Yoonpyo Lee - Lead developer
-- Syed Bahauddin Alam - Project supervision
 
 ## 🙏 Acknowledgments
 

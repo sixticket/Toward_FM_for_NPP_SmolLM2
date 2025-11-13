@@ -24,12 +24,9 @@ SmolLM2-360M based nuclear reactor control rod parameter prediction model.
 .
 ├── auto_run_parallel.py              # Parallel data generation (100K scenarios)
 ├── training/
-│   ├── smollm2_phase1_unsupervised_10k.py
 │   ├── smollm2_phase1_unsupervised_100k.py
-│   ├── smollm2_phase2_supervised_lora_10k.py
 │   └── smollm2_phase2_supervised_lora_100k.py
 └── validation/
-    ├── validation_with_simulator_10k.py
     └── validation_with_simulator_100k.py
 ```
 

@@ -22,7 +22,7 @@ SmolLM2-360M based nuclear reactor control rod parameter prediction model.
 ## 📁 Repository Structure
 ```
 .
-├── auto_run_parallel.py              # Parallel data generation (100K scenarios)
+├── auto_run_minimal.py              # Parallel data generation (100K scenarios)
 ├── training/
 │   ├── smollm2_phase1_unsupervised_100k.py
 │   └── smollm2_phase2_supervised_lora_100k.py
@@ -54,7 +54,7 @@ SmolLM2-360M based nuclear reactor control rod parameter prediction model.
 #### 1. Generate Training Data
 ```bash
 # Generate 100K synthetic scenarios (takes ~33 hours on 12 cores)
-python auto_run_parallel.py
+python auto_run_minimal.py
 ```
 
 **Output:** Dataset with diverse control scenarios
@@ -133,7 +133,7 @@ python validation/validation_with_simulator_100k.py
 
 ### Training Data
 - **Full 100K dataset:** Available upon request
-- **Generation:** Use `auto_run_parallel.py` (requires KOMODO)
+- **Generation:** Use `auto_run_minimal.py` (requires KOMODO)
 - **Time:** ~33 hours on 12-core CPU
 
 ### Pre-trained Models

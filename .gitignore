@@ -1,0 +1,66 @@
+# Models / checkpoints
+models/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+adapter_*.json
+adapter_*.bin
+
+# Data
+*.csv
+*.h5
+*.npz
+*.vtk
+*.out
+*.inp
+*.tsv
+dataset/
+dataset_*/
+validation_runs*/
+nuscale_*
+master_dataset_*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+env/
+.python-version
+
+# Caches
+unsloth_compiled_cache/
+.cache/
+.huggingface/
+
+# Outputs / figures
+*.png
+*.pdf
+*.jpg
+*.jpeg
+*.svg
+*.mp4
+logs/
+results/
+outputs/
+wandb/
+
+# Logs
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini

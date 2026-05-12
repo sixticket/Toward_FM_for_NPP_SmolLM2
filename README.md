@@ -129,7 +129,7 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 
 ## Contact
 
-- Yoonpyo Lee — Hanyang Univ. <lukeyounpyo@hanyang.ac.kr>
+- Yoonpyo Lee — Hanyang Univ. <yoonpyo2@illinois.edu>
 - Syed Bahauddin Alam — UIUC <alams@illinois.edu>
 
 ## Acknowledgments

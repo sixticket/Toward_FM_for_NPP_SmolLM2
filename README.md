@@ -142,10 +142,10 @@ python validation/validation_with_simulator_100k.py
 
 ## 📄 Citation
 ```bibtex
-@article{lee2025toward,
-  title={Toward Foundation Models for Nuclear Engineering Control Systems},
-  author={Lee, Yoonpyo and Alam, Syed Bahauddin},
-  journal={Under Review},
+@article{lee2025agentic,
+  title={Agentic Physical AI toward a Domain-Specific Foundation Model for Nuclear Reactor Control},
+  author={Lee, Yoonpyo and Kobayashi, Kazuma and Puppala, Sai and Talukder, Sajedul and Koric, Seid and Chakraborty, Souvik and Alam, Syed Bahauddin},
+  journal={arXiv preprint arXiv:2512.23292},
   year={2025}
 }
 ```

@@ -59,12 +59,14 @@ exp1_initial_rod_variation/
 └── analyze.py                          actuation pattern compare across configs
 ```
 
-## Run order (all from WSL with the project venv)
+## Run order
 
 ### Easy mode: orchestrator
+Set `PY` to your local Python (the venv with `torch`, `transformers`, `peft`)
+and `EXP` to your local checkout of this folder, then:
 ```bash
-PY=/mnt/c/projects/Foundation_Model/KOMODO/My/training/venv/bin/python
-EXP=/mnt/c/projects/Foundation_Model/KOMODO/My/revision_experiments/exp1_initial_rod_variation
+PY=/path/to/your/venv/bin/python
+EXP=/path/to/initial_rod_variation
 
 $PY $EXP/run_all.py                       # full pipeline, auto-skips existing outputs
 $PY $EXP/run_all.py --from-step 4         # resume at Phase 1 training

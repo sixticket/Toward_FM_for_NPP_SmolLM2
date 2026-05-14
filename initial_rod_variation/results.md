@@ -226,9 +226,12 @@ exp1_initial_rod_variation/
 
 ## Reproduction
 
+Set `PY` to your local Python (with `torch`, `transformers`, `peft`) and
+`EXP` to your local checkout of this folder:
+
 ```bash
-PY=/mnt/c/projects/Foundation_Model/KOMODO/My/training/venv/bin/python
-EXP=/mnt/c/projects/Foundation_Model/KOMODO/My/revision_experiments/exp1_initial_rod_variation
+PY=/path/to/your/venv/bin/python
+EXP=/path/to/initial_rod_variation
 
 # Full pipeline (auto-skip steps with complete outputs)
 $PY $EXP/run_all.py

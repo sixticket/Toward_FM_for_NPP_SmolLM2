@@ -13,13 +13,15 @@ Each step's stdout/stderr is streamed to the terminal AND copied to logs/<step>.
 so internal tqdm bars (KOMODO sims, transformers Trainer, validation cases) stay
 visible. An outer tqdm tracks pipeline progress across steps.
 
-Run from WSL with the project venv:
-    PY=/mnt/c/projects/Foundation_Model/KOMODO/My/training/venv/bin/python
+Run with the project venv (where torch / transformers / peft are installed):
+    PY=/path/to/your/venv/bin/python
     $PY run_all.py                      # full pipeline, skip steps with existing outputs
     $PY run_all.py --no-skip-existing   # rerun everything
     $PY run_all.py --from-step 4        # start at Phase 1 training (data already built)
     $PY run_all.py --only 6             # just re-run validation
     $PY run_all.py --num-cases 50       # smoke test on validation
+
+Set the --python flag (or DEFAULT_PY below) to your local Python executable.
 """
 
 import argparse
@@ -41,8 +43,10 @@ TRAIN_DIR = SCRIPT_DIR / "training"
 VAL_DIR = SCRIPT_DIR / "validation"
 LOG_DIR = SCRIPT_DIR / "logs"
 
-# Default python: project venv (where torch/transformers/peft are installed)
-DEFAULT_PY = "/mnt/c/projects/Foundation_Model/KOMODO/My/training/venv/bin/python"
+# Default python interpreter. Override with --python /path/to/python if you
+# need to point at a specific virtualenv (e.g. one with torch / transformers
+# / peft installed). Defaults to the interpreter running this script.
+DEFAULT_PY = sys.executable
 
 
 def _csv_min_rows(path: Path, expected_data_rows: int):

@@ -62,10 +62,17 @@ Scaling from 10K→100K shows super-linear gain (α=1.24 at ±1%) and ~500× var
 ├── plotting/
 │   ├── plot_main.py
 │   └── plot_comparison.py
-└── analysis/             # Recomputed entropy / KL divergence (Reviewer 1, Concern 5)
-    ├── recompute_entropy_kl.py
-    ├── entropy_kl_recomputed.json
-    └── validation_results_{1k,10k,100k}_2000cases.json
+├── analysis/             # Recomputed entropy / KL divergence (Reviewer 1, Concern 5)
+│   ├── recompute_entropy_kl.py
+│   ├── entropy_kl_recomputed.json
+│   └── validation_results_{1k,10k,100k}_2000cases.json
+└── initial_rod_variation/    # Mixed-initialization training and 2-config validation (Reviewer 1, Concern 2)
+    ├── run_all.py
+    ├── analyze.py
+    ├── plot_init_variation.py
+    ├── data_generation/{sample_existing,generate_mirrored,combine}.py
+    ├── training/{phase1_grammar,phase2_task}_mixed.py
+    └── validation/{validate_mixed.py, template_init_var}
 ```
 
 ## Setup
@@ -120,6 +127,14 @@ Reproduce Supplementary Table S1 (policy entropy and KL divergence from raw runt
 ```bash
 python analysis/recompute_entropy_kl.py
 ```
+
+Initial-rod-position variation experiment (Section 2.8 — Reviewer 1, Concern 2):
+```bash
+cd initial_rod_variation
+python run_all.py          # end-to-end pipeline (data + train + validate)
+python plot_init_variation.py
+```
+See `initial_rod_variation/README.md` for step-by-step details and `results.md` for the full analysis.
 
 ## Data & Models
 

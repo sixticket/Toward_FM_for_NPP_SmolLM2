@@ -169,7 +169,7 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 
 ## Acknowledgments
 
-[KOMODO](https://github.com/imronuke/KOMODO) (Imron, 2019), [SmolLM2](https://huggingface.co/HuggingFaceTB/SmolLM2-360M) (HuggingFace), Hanyang NPRE, UIUC NPRE.
+[KOMODO](https://github.com/imronuke/KOMODO) (Imron, 2019), [SmolLM2](https://huggingface.co/HuggingFaceTB/SmolLM2-360M) (HuggingFace), UIUC NPRE.
 
 ## License
 

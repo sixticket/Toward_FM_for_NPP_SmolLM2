@@ -1,0 +1,62 @@
+{
+  "1K": {
+    "n_records": 2000,
+    "n_in_taxonomy": 2000,
+    "n_other": 0,
+    "counts": {
+      "single_b1": 332,
+      "single_b2": 1561,
+      "simultaneous": 85,
+      "sequential": 22
+    },
+    "probs": {
+      "single_b1": 0.166,
+      "single_b2": 0.7805,
+      "simultaneous": 0.0425,
+      "sequential": 0.011
+    },
+    "H_nats": 0.6753554703518707,
+    "H_max_nats": 1.3862943611198906,
+    "KL_nats": 0.5407020691494145
+  },
+  "10K": {
+    "n_records": 2000,
+    "n_in_taxonomy": 2000,
+    "n_other": 0,
+    "counts": {
+      "single_b1": 452,
+      "single_b2": 1425,
+      "simultaneous": 113,
+      "sequential": 10
+    },
+    "probs": {
+      "single_b1": 0.226,
+      "single_b2": 0.7125,
+      "simultaneous": 0.0565,
+      "sequential": 0.005
+    },
+    "H_nats": 0.7664768961270707,
+    "H_max_nats": 1.3862943611198906,
+    "KL_nats": 0.442988969642206
+  },
+  "100K": {
+    "n_records": 2000,
+    "n_in_taxonomy": 1999,
+    "n_other": 1,
+    "counts": {
+      "single_b1": 400,
+      "single_b2": 1522,
+      "simultaneous": 75,
+      "sequential": 2
+    },
+    "probs": {
+      "single_b1": 0.2001000500250125,
+      "single_b2": 0.7613806903451726,
+      "simultaneous": 0.03751875937968985,
+      "sequential": 0.0010005002501250625
+    },
+    "H_nats": 0.6595990822756583,
+    "H_max_nats": 1.3862943611198906,
+    "KL_nats": 0.5454728839198807
+  }
+}

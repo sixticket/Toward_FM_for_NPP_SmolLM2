@@ -59,9 +59,13 @@ Scaling from 10K→100K shows super-linear gain (α=1.24 at ±1%) and ~500× var
 │   ├── data_generation.py
 │   ├── train_pyrk.py
 │   └── validate_pyrk.py
-└── plotting/
-    ├── plot_main.py
-    └── plot_comparison.py
+├── plotting/
+│   ├── plot_main.py
+│   └── plot_comparison.py
+└── analysis/             # Recomputed entropy / KL divergence (Reviewer 1, Concern 5)
+    ├── recompute_entropy_kl.py
+    ├── entropy_kl_recomputed.json
+    └── validation_results_{1k,10k,100k}_2000cases.json
 ```
 
 ## Setup
@@ -110,6 +114,11 @@ PyRK transfer (Sec. 2.7):
 python pyrk_transfer/data_generation.py
 python pyrk_transfer/train_pyrk.py
 python pyrk_transfer/validate_pyrk.py
+```
+
+Reproduce Supplementary Table S1 (policy entropy and KL divergence from raw runtime histograms — Reviewer 1, Concern 5):
+```bash
+python analysis/recompute_entropy_kl.py
 ```
 
 ## Data & Models

@@ -153,7 +153,7 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 
 ## Contact
 
-- Yoonpyo Lee — Hanyang Univ. <yoonpyo2@illinois.edu>
+- Yoonpyo Lee — UIUC <yoonpyo2@illinois.edu>
 - Syed Bahauddin Alam — UIUC <alams@illinois.edu>
 
 ## Acknowledgments

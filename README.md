@@ -22,13 +22,14 @@ Closed-loop success rate at ±5% tolerance (2,000 runs each):
 | 10K | 26.2% | 83.9% | 96.0% | 89 |
 | **100K** | **92.0%** | **97.4%** | **100.0%** | **0** |
 
-Scaling from 10K→100K shows super-linear gain (α=1.24 at ±1%) and ~500× variance collapse. Despite balanced 30/30/30/10 training over four actuation families, the 100K model concentrates 76.1% of runtime on `single_b2`.
+Scaling from 10K→100K shows strong scaling behavior with regime-dependent gains (α=0.55 at ±1%) and ~500× variance collapse. Despite balanced 30/30/30/10 training over four actuation families, the 100K model concentrates 76.1% of runtime on `single_b2`.
 
 **Baselines** (±5% on identical 2,000 runs):
 
 | Method | ±5% | Notes |
 |---|---|---|
-| PID (6-shot tuned) | 43.8% | saturates in large regime |
+| Single-gain PID | 40.7% | saturates in large regime |
+| Gain-scheduled PID | 75.8% | strengthened classical baseline |
 | Direct LoRA (no Phase 1) | ~0% | mean err >100%, validates curriculum |
 | **Proposed (100K)** | **97.4%** | — |
 

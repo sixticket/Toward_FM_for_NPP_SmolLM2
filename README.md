@@ -1,6 +1,6 @@
 # Toward FM for NPP — SmolLM2
 
-Official code for **"Agentic Physical AI toward a Domain-Specific Foundation Model for Nuclear Reactor Control"** (Lee et al., 2026).
+Official code for **"Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control"** (Lee et al., 2026).
 
 A compact 360M-parameter language model (SmolLM2) that generates physically valid PWR control-rod commands, validated through closed-loop execution in the KOMODO reactor simulator.
 
@@ -44,8 +44,8 @@ Scaling from 10K→100K shows strong scaling behavior with regime-dependent gain
 │   ├── komodo_generate_1k.py
 │   └── template
 ├── training/               # Phase 1/2 + Direct LoRA baseline
-│   ├── phase1_grammar_{1k,100k}.py
-│   ├── phase2_task_{1k,100k}.py
+│   ├── phase1_grammar_{1k,10k,100k}.py
+│   ├── phase2_task_{1k,10k,100k}.py
 │   └── direct_lora_baseline.py
 ├── validation/             # Closed-loop + PID
 │   ├── komodo_validation_{1k,10k,100k,direct}.py
@@ -156,8 +156,8 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 
 ```bibtex
 @article{lee2025agentic,
-  title={Agentic Physical AI toward a Domain-Specific Foundation Model for Nuclear Reactor Control},
-  author={Lee, Yoonpyo and Kobayashi, Kazuma and Puppala, Sai and Talukder, Sajedul and Koric, Seid and Chakraborty, Souvik and Alam, Syed Bahauddin},
+  title={Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control},
+  author={Lee, Yoon Pyo and Roy, Samrendra and Kobayashi, Kazuma and Talukder, Sajedul and Abueidda, Diab and Koric, Seid and Chakraborty, Souvik and Alam, Syed Bahauddin},
   journal={arXiv preprint arXiv:2512.23292},
   year={2025}
 }
@@ -165,7 +165,7 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 
 ## Contact
 
-- Yoonpyo Lee — UIUC <yoonpyo2@illinois.edu>
+- Yoon Pyo Lee — UIUC <yoonpyo2@illinois.edu>
 - Syed Bahauddin Alam — UIUC <alams@illinois.edu>
 
 ## Acknowledgments

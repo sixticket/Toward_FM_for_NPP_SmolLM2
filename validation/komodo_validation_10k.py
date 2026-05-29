@@ -32,8 +32,8 @@ REPO_ROOT = SCRIPT_DIR.parent                  # repo root
 
 # 모델 경로 (V7.1 Simple!)
 TRAINING_DIR = REPO_ROOT / "training"
-PHASE1_MODEL_PATH = TRAINING_DIR / "models/smollm2_unsupervised_numeric/final_model"
-PHASE2_MODEL_PATH = TRAINING_DIR / "models/smollm2_supervised_lora_v7_numeric_simple/final_model"  # V7.1!
+PHASE1_MODEL_PATH = TRAINING_DIR / "models/smollm2_unsupervised_numeric_10k/final_model"
+PHASE2_MODEL_PATH = TRAINING_DIR / "models/smollm2_supervised_lora_v7_numeric_simple_10k/final_model"  # V7.1!
 
 # 시뮬레이터 설정 (override with KOMODO_EXECUTABLE env var if installed elsewhere)
 KOMODO_EXECUTABLE = Path(os.environ.get("KOMODO_EXECUTABLE", str(REPO_ROOT / "komodo")))

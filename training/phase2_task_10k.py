@@ -1,10 +1,10 @@
 """
-SmolLM2-360M Supervised Training for KOMODO (Phase 2) - V7.1 Simple 1K
+SmolLM2-360M Supervised Training for KOMODO (Phase 2) - V7.1 Simple 10K
 + V7.1: 화살표 제거! 완전히 쉼표로만 통합
 + 데이터 형식: "[1.0, 1.5, 180, 0.0, 0.0, 100, 0.0, 0.0]"
 + Temperature 0.05 (더 결정적)
-+ Phase 1 V7 1K 모델 기반
-+ 1,000개 데이터로 학습!
++ Phase 1 V7 10K 모델 기반
++ 10,000개 데이터로 학습!
 """
 
 import os
@@ -46,7 +46,7 @@ class ProgressCallback(TrainerCallback):
     def on_train_begin(self, args, state, control, **kwargs):
         self.start_time = time.time()
         print("\n" + "🚀 " * 20)
-        print("SmolLM2 Supervised Training 시작! (Phase 2 - V7.1 Simple 1K!)")
+        print("SmolLM2 Supervised Training 시작! (Phase 2 - V7.1 Simple 10K!)")
         print("🚀 " * 20 + "\n")
 
     def on_log(self, args, state, control, logs=None, **kwargs):
@@ -101,14 +101,14 @@ class ProgressCallback(TrainerCallback):
 
 
 # ============================================================================
-# 설정 - V7.1 Simple 1K!
+# 설정 - V7.1 Simple 10K!
 # ============================================================================
 
 SCRIPT_DIR = Path(__file__).parent
 BASE_DIR = SCRIPT_DIR.parent
-DATASET_PATH = BASE_DIR / "dataset/master_dataset_1K.csv"  # ✅ 1K!
-PHASE1_MODEL_PATH = SCRIPT_DIR / "models/smollm2_unsupervised_numeric_1k/final_model"  # ✅ V7 1K!
-OUTPUT_DIR = SCRIPT_DIR / "models/smollm2_supervised_lora_v7_numeric_simple_1k"  # ✅ V7.1 1K!
+DATASET_PATH = BASE_DIR / "dataset/master_dataset_10K.csv"  # ✅ 10K!
+PHASE1_MODEL_PATH = SCRIPT_DIR / "models/smollm2_unsupervised_numeric_10k/final_model"  # ✅ V7 10K!
+OUTPUT_DIR = SCRIPT_DIR / "models/smollm2_supervised_lora_v7_numeric_simple_10k"  # ✅ V7.1 10K!
 DATA_OUTPUT_DIR = SCRIPT_DIR / "processed_data"
 RESULTS_DIR = SCRIPT_DIR / "evaluation_results"
 
@@ -126,15 +126,15 @@ LORA_ALPHA = 64
 LORA_DROPOUT = 0.05
 LORA_TARGET_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj"]
 
-# 훈련 설정 - 1K 최적화!
+# 훈련 설정 - 10K 최적화!
 BATCH_SIZE = 8
 GRADIENT_ACCUMULATION_STEPS = 2
-EPOCHS = 30  # ✅ 1K는 더 많은 에포크 필요
+EPOCHS = 30  # ✅ 10K는 더 많은 에포크 필요
 LEARNING_RATE = 5e-5
-WARMUP_STEPS = 100  # ✅ 1K 적합
+WARMUP_STEPS = 100  # ✅ 10K 적합
 WEIGHT_DECAY = 0.01
-EVAL_STEPS = 250  # ✅ 1K 적합
-SAVE_STEPS = 1000  # ✅ 1K 적합
+EVAL_STEPS = 250  # ✅ 10K 적합
+SAVE_STEPS = 1000  # ✅ 10K 적합
 
 # 추론 설정 - V7.1 최적화!
 INFERENCE_TEMPERATURE = 0.05  # 더 결정적!
@@ -188,7 +188,7 @@ def create_supervised_format_simple(row):
 def load_and_prepare_data():
     """데이터 로드 및 V7.1 Simple Format 변환"""
     print("=" * 80)
-    print("데이터 로딩 (V7.1 Simple Format - Phase 2 1K)")
+    print("데이터 로딩 (V7.1 Simple Format - Phase 2 10K)")
     print("=" * 80)
 
     df = pd.read_csv(DATASET_PATH)
@@ -222,7 +222,7 @@ def load_and_prepare_data():
     print("✅ Phase 1과 형식 동일 (숫자만 늘어남)")
     print("✅ 특수 기호 없음 (-> 제거)")
     print("✅ 파싱 초간단 (숫자 8개)")
-    print("✅ 1,000개 데이터로 80-85% 목표!")
+    print("✅ 10,000개 데이터로 80-85% 목표!")
 
     return df
 
@@ -270,24 +270,24 @@ def stratified_split(df):
 # ============================================================================
 
 def load_model_with_lora(tokenizer):
-    """Phase 1 V7 1K 모델 로드 + LoRA adapter 추가"""
+    """Phase 1 V7 10K 모델 로드 + LoRA adapter 추가"""
     print("\n" + "=" * 80)
-    print("Phase 1 V7 1K 모델 로딩 + LoRA Adapter 추가")
+    print("Phase 1 V7 10K 모델 로딩 + LoRA Adapter 추가")
     print("=" * 80)
 
     if not PHASE1_MODEL_PATH.exists():
         raise FileNotFoundError(
-            f"Phase 1 V7 1K 모델을 찾을 수 없습니다: {PHASE1_MODEL_PATH}\n"
-            "먼저 Phase 1 V7 1K 훈련을 완료하세요!"
+            f"Phase 1 V7 10K 모델을 찾을 수 없습니다: {PHASE1_MODEL_PATH}\n"
+            "먼저 Phase 1 V7 10K 훈련을 완료하세요!"
         )
 
-    # Phase 1 V7 1K 모델 로드
+    # Phase 1 V7 10K 모델 로드
     model = AutoModelForCausalLM.from_pretrained(
         str(PHASE1_MODEL_PATH),
         torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
     )
 
-    print(f"\n✓ Phase 1 V7 1K 모델 로드: {PHASE1_MODEL_PATH}")
+    print(f"\n✓ Phase 1 V7 10K 모델 로드: {PHASE1_MODEL_PATH}")
 
     # LoRA 설정
     lora_config = LoraConfig(
@@ -315,7 +315,7 @@ def load_model_with_lora(tokenizer):
     print(f"\n📊 파라미터 통계:")
     print(f"  - 학습 가능: {trainable_params:,} ({trainable_percent:.2f}%)")
     print(f"  - 전체: {total_params:,}")
-    print(f"  - Phase 1 V7 1K 파라미터: 100% 동결 ✅")
+    print(f"  - Phase 1 V7 10K 파라미터: 100% 동결 ✅")
 
     if torch.cuda.is_available():
         model = model.cuda()
@@ -393,7 +393,7 @@ def prepare_dataset(df, tokenizer):
         batched=True,
         batch_size=100,
         remove_columns=['text'],
-        desc="Tokenizing (V7.1 Simple 1K - LoRA)"
+        desc="Tokenizing (V7.1 Simple 10K - LoRA)"
     )
 
     return tokenized_dataset
@@ -404,9 +404,9 @@ def prepare_dataset(df, tokenizer):
 # ============================================================================
 
 def train_model(model, tokenizer, train_df, val_df):
-    """모델 훈련 (LoRA V7.1 Simple 1K)"""
+    """모델 훈련 (LoRA V7.1 Simple 10K)"""
     print("\n" + "=" * 80)
-    print("Supervised Training 시작 (Phase 2 - V7.1 Simple 1K)")
+    print("Supervised Training 시작 (Phase 2 - V7.1 Simple 10K)")
     print("=" * 80)
 
     train_dataset = prepare_dataset(train_df, tokenizer)
@@ -456,10 +456,10 @@ def train_model(model, tokenizer, train_df, val_df):
         callbacks=[progress_callback],
     )
 
-    print(f"\n[훈련 설정 - Phase 2 V7.1 Simple 1K]")
-    print(f"  - 데이터: 1,000개 ✅")
+    print(f"\n[훈련 설정 - Phase 2 V7.1 Simple 10K]")
+    print(f"  - 데이터: 10,000개 ✅")
     print(f"  - 방식: LoRA Adapter만 학습")
-    print(f"  - 기반: Phase 1 V7 1K 모델 (숫자 전용!)")
+    print(f"  - 기반: Phase 1 V7 10K 모델 (숫자 전용!)")
     print(f"  - 형식: 화살표 제거! 완전 통합!")
     print(f"  - LoRA Rank: {LORA_R}")
     print(f"  - LoRA Alpha: {LORA_ALPHA}")
@@ -470,17 +470,17 @@ def train_model(model, tokenizer, train_df, val_df):
     print(f"  - Effective batch: {BATCH_SIZE * GRADIENT_ACCUMULATION_STEPS}")
     print(f"  - Warmup: {WARMUP_STEPS} steps")
     print(f"  - Temperature: {INFERENCE_TEMPERATURE} 🎯")
-    print(f"  - 🔒 Phase 1 V7 1K 파라미터: 완전 동결")
+    print(f"  - 🔒 Phase 1 V7 10K 파라미터: 완전 동결")
     print(f"  - 🎯 목표: 80-85% 검증 성공률!")
 
     print("\n" + "-" * 80)
-    print("V7.1 Simple 1K 훈련 시작...")
+    print("V7.1 Simple 10K 훈련 시작...")
     print("-" * 80 + "\n")
 
     trainer.train()
 
     print("\n" + "=" * 80)
-    print("✓ Phase 2 V7.1 Simple 1K 훈련 완료!")
+    print("✓ Phase 2 V7.1 Simple 10K 훈련 완료!")
     print("=" * 80)
 
     return trainer
@@ -493,7 +493,7 @@ def train_model(model, tokenizer, train_df, val_df):
 def save_model(model, tokenizer):
     """LoRA 모델 저장"""
     print("\n" + "=" * 80)
-    print("LoRA 모델 저장 (Phase 2 V7.1 Simple 1K)")
+    print("LoRA 모델 저장 (Phase 2 V7.1 Simple 10K)")
     print("=" * 80)
 
     final_model_dir = OUTPUT_DIR / "final_model"
@@ -503,9 +503,9 @@ def save_model(model, tokenizer):
     model.save_pretrained(str(final_model_dir))
     tokenizer.save_pretrained(str(final_model_dir))
 
-    print(f"\n✓ Phase 2 V7.1 1K LoRA 모델 저장 완료: {final_model_dir}")
+    print(f"\n✓ Phase 2 V7.1 10K LoRA 모델 저장 완료: {final_model_dir}")
     print("  - LoRA adapter만 저장됨 (용량 매우 작음!)")
-    print("  - Phase 1 V7 1K 모델 + 이 adapter를 같이 로드해야 함")
+    print("  - Phase 1 V7 10K 모델 + 이 adapter를 같이 로드해야 함")
 
 
 # ============================================================================
@@ -572,9 +572,9 @@ def generate_prediction(model, tokenizer, initial_power, final_power):
 # ============================================================================
 
 def evaluate_on_test_set(model, tokenizer, test_df):
-    """Test Set 전체 평가 + 통계 분석 (V7.1 1K)"""
+    """Test Set 전체 평가 + 통계 분석 (V7.1 10K)"""
     print("\n" + "=" * 80)
-    print(f"🎯 Test Set 전체 평가 시작 ({len(test_df):,}개) - V7.1 Simple 1K")
+    print(f"🎯 Test Set 전체 평가 시작 ({len(test_df):,}개) - V7.1 Simple 10K")
     print("=" * 80)
 
     model.eval()
@@ -637,7 +637,7 @@ def evaluate_on_test_set(model, tokenizer, test_df):
     print(f"  - V6 (필드명, 10K):    87.1%")
     print(f"  - V7 (화살표, 10K):    90.0%")
     print(f"  - V7.1 (쉼표, 10K):    100.0%")
-    print(f"  - V7.1 (쉼표, 1K):     {parse_success / len(results) * 100:.1f}% ⭐")
+    print(f"  - V7.1 (쉼표, 10K):     {parse_success / len(results) * 100:.1f}% ⭐")
 
     # 통계 분석
     print("\n" + "=" * 80)
@@ -688,7 +688,7 @@ def evaluate_on_test_set(model, tokenizer, test_df):
                     print(f"  {key:12s}: MAE={mae:6.3f}")
 
     # 결과 저장
-    results_file = RESULTS_DIR / "test_set_results_v7_simple_1k.json"
+    results_file = RESULTS_DIR / "test_set_results_v7_simple_10k.json"
     with open(results_file, 'w') as f:
         json.dump(results, f, indent=2)
 
@@ -724,9 +724,9 @@ def evaluate_on_test_set(model, tokenizer, test_df):
 # ============================================================================
 
 def quick_test(model, tokenizer, test_df):
-    """빠른 테스트 (샘플 몇 개) - V7.1 1K"""
+    """빠른 테스트 (샘플 몇 개) - V7.1 10K"""
     print("\n" + "=" * 80)
-    print("⚡ Quick Test (샘플 예측) - V7.1 Simple 1K")
+    print("⚡ Quick Test (샘플 예측) - V7.1 Simple 10K")
     print("=" * 80)
 
     model.eval()
@@ -778,8 +778,8 @@ def quick_test(model, tokenizer, test_df):
             print("⚠️ 파싱 실패")
         print("-" * 80)
 
-    print("\n📌 V7.1 Simple 1K 특징:")
-    print("  ✓ 1,000개 데이터 학습!")
+    print("\n📌 V7.1 Simple 10K 특징:")
+    print("  ✓ 10,000개 데이터 학습!")
     print("  ✓ 화살표 완전 제거 (-> 없음)")
     print("  ✓ 쉼표만 사용 (단순!)")
     print("  ✓ Phase 1과 형식 동일 (숫자만 늘어남)")
@@ -796,9 +796,9 @@ def main():
     """메인 훈련 파이프라인"""
     print("\n")
     print("=" * 80)
-    print("KOMODO Foundation Model - Phase 2 V7.1 Simple 1K")
+    print("KOMODO Foundation Model - Phase 2 V7.1 Simple 10K")
     print("SmolLM2-360M + LoRA (화살표 제거, 완전 통합)")
-    print("1,000개 데이터로 80-85% 목표!")
+    print("10,000개 데이터로 80-85% 목표!")
     print("=" * 80)
     print(f"\nGPU: {torch.cuda.is_available()}")
     if torch.cuda.is_available():
@@ -831,11 +831,11 @@ def main():
         print("\n⏩ 전체 평가 건너뜀")
 
     print("\n" + "=" * 80)
-    print("✓ Phase 2 V7.1 Simple 1K 완료!")
+    print("✓ Phase 2 V7.1 Simple 10K 완료!")
     print("=" * 80)
     print(f"\n모델 저장: {OUTPUT_DIR / 'final_model'}")
-    print("\n🎯 V7.1 Simple 1K 혁신:")
-    print("  ✅ 1,000개 데이터로 학습!")
+    print("\n🎯 V7.1 Simple 10K 혁신:")
+    print("  ✅ 10,000개 데이터로 학습!")
     print("  ✅ 화살표 완전 제거 (-> 없음!)")
     print("  ✅ 쉼표만 사용 (초간단!)")
     print("  ✅ Phase 1과 형식 동일 (숫자만 늘어남)")
@@ -848,8 +848,8 @@ def main():
     print("\n📊 버전별 검증 성공률 비교 (예상):")
     print("  - V7 (화살표, 10K):    22.2%")
     print("  - V7.1 (쉼표, 10K):    79.0%")
-    print("  - V7.1 (쉼표, 1K):     80-85% 목표! 🎯")
-    print("\n다음: validation_with_simulator_v7_simple_1k.py로 100-200 케이스 검증")
+    print("  - V7.1 (쉼표, 10K):     80-85% 목표! 🎯")
+    print("\n다음: validation_with_simulator_v7_simple_10k.py로 100-200 케이스 검증")
 
 
 if __name__ == "__main__":

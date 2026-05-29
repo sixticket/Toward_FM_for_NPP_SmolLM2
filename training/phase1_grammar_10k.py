@@ -98,8 +98,8 @@ class ProgressCallback(TrainerCallback):
 
 SCRIPT_DIR = Path(__file__).parent
 BASE_DIR = SCRIPT_DIR.parent
-DATASET_PATH = BASE_DIR / "dataset/master_dataset_1K.csv"
-OUTPUT_DIR = SCRIPT_DIR / "models/smollm2_unsupervised_numeric_1k"  # V7 전용 디렉토리
+DATASET_PATH = BASE_DIR / "dataset/master_dataset_10K.csv"
+OUTPUT_DIR = SCRIPT_DIR / "models/smollm2_unsupervised_numeric_10k"  # V7 전용 디렉토리
 DATA_OUTPUT_DIR = SCRIPT_DIR / "processed_data"
 
 # 모델 설정
@@ -114,7 +114,7 @@ TEST_RATIO = 0.0  # Phase 1에서는 불필요
 # V7 최적화: 속도 개선
 BATCH_SIZE = 8                   # 2 → 8 (4배 증가)
 GRADIENT_ACCUMULATION_STEPS = 2  # 8 → 2 (4배 감소)
-EPOCHS = 30
+EPOCHS = 20
 LEARNING_RATE = 5e-5
 WARMUP_STEPS = 100
 WEIGHT_DECAY = 0.01
@@ -357,9 +357,9 @@ def train_model(model, tokenizer, train_df, val_df):
         weight_decay=WEIGHT_DECAY,
         logging_steps=50,
         eval_strategy="steps",
-        eval_steps=100,  # V7: 평가 빈도 감소
+        eval_steps=250,  # V7: 평가 빈도 감소
         save_strategy="steps",
-        save_steps=500,  # V7: 저장 빈도 감소
+        save_steps=1000,  # V7: 저장 빈도 감소
         save_total_limit=3,
         bf16=torch.cuda.is_available(),
         optim="adamw_torch",

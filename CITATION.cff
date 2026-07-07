@@ -4,6 +4,7 @@ type: software
 title: "Toward FM for NPP — SmolLM2"
 version: 1.0.0
 license: MIT
+doi: 10.5281/zenodo.21230456
 repository-code: "https://github.com/sixticket/Toward_FM_for_NPP_SmolLM2"
 abstract: "Official code for a compact 360M-parameter language model (SmolLM2) that generates physically valid PWR control-rod commands, validated through closed-loop execution in the KOMODO reactor simulator."
 keywords:

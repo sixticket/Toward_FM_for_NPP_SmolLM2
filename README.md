@@ -1,6 +1,6 @@
 # Toward FM for NPP — SmolLM2
 
-Official code for **"Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control"** (Lee et al., 2026).
+Official code for **"Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control"** — accepted at *npj Artificial Intelligence* (Nature Portfolio, 2026).
 
 A compact 360M-parameter language model (SmolLM2) that generates physically valid PWR control-rod commands, validated through closed-loop execution in the KOMODO reactor simulator.
 
@@ -77,7 +77,7 @@ Scaling from 10K→100K shows strong scaling behavior with regime-dependent gain
 └── gain_scheduled_pid/   # Strengthened classical baseline (Reviewer 1, Concern 4 / Reviewer 2, Comment 6)
     ├── pid_scheduled.py             # --calibrate / --validate
     ├── plot_comparison_4models.py   # Figure 5 with 4 models (paths may need local adjustment)
-    └── figures/Figure_Comparison_Combined.pdf
+    └── results.md                   # full analysis (calibration sweep, per-regime gains)
 ```
 
 ## Setup
@@ -98,6 +98,7 @@ Scaling from 10K→100K shows strong scaling behavior with regime-dependent gain
 # 1. Data → writes to ./dataset/
 python data_generation/komodo_generate.py        # 100K, ~33h @ 12 cores
 python data_generation/komodo_generate_1k.py     # 1K
+# For 10K: set NUM_SIMULATIONS = 10000 in komodo_generate.py
 
 # 2. Train (RTX 3070)
 python training/phase1_grammar_100k.py           # ~5-6h
@@ -155,11 +156,12 @@ Not included. Regenerate via scripts above or contact authors for weights/datase
 ## Citation
 
 ```bibtex
-@article{lee2025agentic,
+@article{lee2026agentic,
   title={Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control},
   author={Lee, Yoon Pyo and Roy, Samrendra and Kobayashi, Kazuma and Talukder, Sajedul and Abueidda, Diab and Koric, Seid and Chakraborty, Souvik and Alam, Syed Bahauddin},
-  journal={arXiv preprint arXiv:2512.23292},
-  year={2025}
+  journal={npj Artificial Intelligence},
+  year={2026},
+  note={In press. Preprint: arXiv:2512.23292}
 }
 ```
 

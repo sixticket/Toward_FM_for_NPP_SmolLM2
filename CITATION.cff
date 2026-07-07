@@ -1,0 +1,70 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the associated paper (see preferred-citation)."
+type: software
+title: "Toward FM for NPP — SmolLM2"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/sixticket/Toward_FM_for_NPP_SmolLM2"
+abstract: "Official code for a compact 360M-parameter language model (SmolLM2) that generates physically valid PWR control-rod commands, validated through closed-loop execution in the KOMODO reactor simulator."
+keywords:
+  - nuclear reactor control
+  - large language models
+  - agentic AI
+  - physical AI
+  - domain-specific foundation models
+  - KOMODO
+  - SmolLM2
+authors:
+  - family-names: Lee
+    given-names: Yoon Pyo
+    orcid: "https://orcid.org/0009-0004-4044-4447"
+    affiliation: "The Grainger College of Engineering, Nuclear, Plasma & Radiological Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA; Department of Nuclear Engineering, Hanyang University, Republic of Korea"
+  - family-names: Roy
+    given-names: Samrendra
+    affiliation: "The Grainger College of Engineering, Nuclear, Plasma & Radiological Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA"
+  - family-names: Kobayashi
+    given-names: Kazuma
+    affiliation: "The Grainger College of Engineering, Nuclear, Plasma & Radiological Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA"
+  - family-names: Talukder
+    given-names: Sajedul
+    affiliation: "University of Texas - El Paso, El Paso, TX, USA"
+  - family-names: Abueidda
+    given-names: Diab
+    affiliation: "National Center for Supercomputing Applications, Urbana, IL, USA; Civil and Urban Engineering Department, New York University Abu Dhabi, UAE"
+  - family-names: Koric
+    given-names: Seid
+    affiliation: "National Center for Supercomputing Applications, Urbana, IL, USA"
+  - family-names: Chakraborty
+    given-names: Souvik
+    affiliation: "Department of Applied Mechanics, Indian Institute of Technology Delhi, New Delhi, India; Yardi School of Artificial Intelligence, Indian Institute of Technology Delhi, New Delhi, India"
+  - family-names: Alam
+    given-names: Syed Bahauddin
+    affiliation: "The Grainger College of Engineering, Nuclear, Plasma & Radiological Engineering, University of Illinois Urbana-Champaign, Urbana, IL, USA; National Center for Supercomputing Applications, Urbana, IL, USA"
+identifiers:
+  - type: other
+    value: "arXiv:2512.23292"
+    description: "arXiv preprint of the associated paper"
+preferred-citation:
+  type: article
+  title: "Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control"
+  journal: "npj Artificial Intelligence"
+  year: 2026
+  notes: "In press. Preprint: arXiv:2512.23292"
+  authors:
+    - family-names: Lee
+      given-names: Yoon Pyo
+      orcid: "https://orcid.org/0009-0004-4044-4447"
+    - family-names: Roy
+      given-names: Samrendra
+    - family-names: Kobayashi
+      given-names: Kazuma
+    - family-names: Talukder
+      given-names: Sajedul
+    - family-names: Abueidda
+      given-names: Diab
+    - family-names: Koric
+      given-names: Seid
+    - family-names: Chakraborty
+      given-names: Souvik
+    - family-names: Alam
+      given-names: Syed Bahauddin

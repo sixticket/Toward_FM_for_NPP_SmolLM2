@@ -1,5 +1,7 @@
 # Toward FM for NPP — SmolLM2
 
+[![DOI](https://zenodo.org/badge/1085487438.svg)](https://doi.org/10.5281/zenodo.21230456)
+
 Official code for **"Agentic Physical AI toward a Domain-Specific Foundation Model for Energy Systems: A Case Study on Nuclear Reactor Control"** — accepted at *npj Artificial Intelligence* (Nature Portfolio, 2026).
 
 A compact 360M-parameter language model (SmolLM2) that generates physically valid PWR control-rod commands, validated through closed-loop execution in the KOMODO reactor simulator.

@@ -39,7 +39,7 @@ Scaling from 10K→100K shows strong scaling behavior with regime-dependent gain
 
 ```
 .
-├── data_generation/        # KOMODO PWR data ((1K/10K/100K))
+├── data_generation/        # KOMODO PWR data (1K/10K/100K)
 │   ├── komodo_generate.py
 │   ├── komodo_generate_1k.py
 │   └── template
